@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <div class="banner" role="img" title="scaly's expression graph for the gradient of a race-car model predictive control cost over 8 time steps, about 1,500 nodes." aria-label="scaly's expression graph for the gradient of a race-car model predictive control cost over 8 time steps, about 1,500 nodes."></div>
   <header>
     <div class="intro">
       <h1>Tudor Oancea</h1>
@@ -29,13 +30,8 @@
         <dt>LinkedIn</dt><dd><a href="https://www.linkedin.com/in/tudoroancea">tudoroancea</a></dd>
       </dl>
     </div>
-    <img src="portrait.jpg" alt="Portrait of Tudor Oancea" width="480" height="477">
+    <img src="portrait.jpg" alt="Portrait of Tudor Oancea" width="480" height="480">
   </header>
-
-  <figure>
-    <figcaption>KKT matrix of an optimal control problem with 5 stages, 2 states and 1 input. <span id="nnz"></span></figcaption>
-    <svg id="kkt" aria-hidden="true"></svg>
-  </figure>
 
   <main>
     <section>
@@ -76,6 +72,7 @@
       </ul>
     </section>
 
+    <!--
     <section>
       <h2>Projects</h2>
       <p>Open-source work outside my thesis, mostly tools I wanted for myself.</p>
@@ -89,6 +86,7 @@
         <li><div><a href="https://github.com/tudoroancea/dpc">dpc</a><span class="lang">Python</span></div><p>Training neural controllers to imitate MPC on a race car.</p></li>
       </ul>
     </section>
+    -->
 
     <section>
       <h2>Experience</h2>
@@ -139,26 +137,5 @@
   </main>
 
   <footer>Lausanne, Switzerland. Updated October 2026.</footer>
-
-  <script>
-    // KKT matrix of a multiple-shooting OCP, unknowns ordered stage by stage:
-    // (λ0, x0, u0, λ1, x1, u1, ..., λN, xN). λ0 pins x0; λk+1 enforces the dynamics.
-    const nx = 2, nu = 1, N = 5, s = 2 * nx + nu, n = 2 * nx + N * s;
-    const K = Array.from({ length: n }, () => new Uint8Array(n));
-    const fill = (r, c, h, w, diag) => {
-      for (let i = 0; i < h; i++) for (let j = 0; j < w; j++) if (!diag || i === j) K[r + i][c + j] = K[c + j][r + i] = 1;
-    };
-    for (let k = 0; k <= N; k++) {
-      const l = k * s, x = l + nx;
-      fill(l, x, nx, nx, true);
-      if (k < N) { fill(x, x, nx + nu, nx + nu); fill(l + s, x, nx, nx + nu); } else fill(x, x, nx, nx);
-    }
-    let d = "", nnz = 0;
-    K.forEach((row, i) => row.forEach((v, j) => { if (v) { nnz++; d += `M${j + .125} ${i + .125}h.75v.75h-.75z`; } }));
-    const svg = document.getElementById("kkt");
-    svg.setAttribute("viewBox", `-.5 -.5 ${n + 1} ${n + 1}`);
-    svg.innerHTML = `<path d="${d}"/>`;
-    document.getElementById("nnz").textContent = `${nnz} of ${n * n} entries are nonzero.`;
-  </script>
 </body>
 </html>

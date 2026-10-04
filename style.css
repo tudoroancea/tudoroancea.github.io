@@ -3,7 +3,7 @@
   --ink: #18222a;
   --muted: #66727a;
   --rule: #cdd5d4;
-  --accent: #1d6a72;
+  --accent: #86466c;
   --l: 1.5rem;
   color-scheme: light dark;
 }
@@ -14,7 +14,7 @@
     --ink: #dfe5e3;
     --muted: #8a979c;
     --rule: #2c373c;
-    --accent: #6cc0c7;
+    --accent: #d49bbd;
   }
 }
 
@@ -35,7 +35,7 @@ body {
   padding: calc(3 * var(--l)) 2ch calc(2 * var(--l));
 }
 
-h1, h2, h3, p, ul, ol, dl, dd, figure, pre { margin: 0; }
+h1, h2, h3, p, ul, ol, dl, dd { margin: 0; }
 h1, h2, h3 { font-size: 1rem; font-weight: 600; }
 
 p + p, p + .links { margin-top: var(--l); }
@@ -74,22 +74,20 @@ header img {
   border: 1px solid var(--rule);
 }
 
-figure {
-  display: grid;
-  grid-template-columns: 1fr calc(7 * var(--l));
-  gap: 0 3ch;
-  margin: calc(2 * var(--l)) 0;
+.banner {
+  height: calc(8 * var(--l));
+  margin: calc(-3 * var(--l)) 0 calc(2 * var(--l));
 }
-
-#kkt {
-  display: block;
-  width: 100%;
-  aspect-ratio: 1;
-  border: 1px solid var(--rule);
-  fill: var(--ink);
+.banner::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: calc(8 * var(--l));
+  background: var(--rule);
+  mask: url(banner.svg) center / auto 100% no-repeat;
 }
-
-figcaption { color: var(--muted); align-self: end; }
 
 .contact {
   display: grid;
@@ -149,4 +147,5 @@ footer {
   header img { width: calc(6 * var(--l)); order: -1; margin: 0 0 var(--l); }
   .projects li, .timeline li { grid-template-columns: 1fr; }
   .projects .lang { display: inline; margin-left: 2ch; }
+  .banner { margin-top: calc(-2 * var(--l)); }
 }
