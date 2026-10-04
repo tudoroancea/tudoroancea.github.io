@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tudor Oancea</title>
+  <meta name="description" content="Tudor Oancea, PhD student at the Predictive Control Lab, EPFL. Compilers and numerical solvers for optimal control.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,600;1,400&display=swap">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="intro">
+      <h1>Tudor Oancea</h1>
+      <p class="role">PhD student in automatic control at EPFL</p>
+      <p>
+        I work on making optimal control fast enough to run on real hardware:
+        modelling languages, code generators and numerical solvers for model
+        predictive control. I am based at the
+        <a href="https://www.epfl.ch/labs/la3/">Predictive Control Lab</a>
+        in Lausanne.
+      </p>
+      <dl class="contact">
+        <dt>Email</dt><dd><a href="mailto:tudor.oancea@epfl.ch">tudor.oancea@epfl.ch</a></dd>
+        <dt>Personal</dt><dd><a href="mailto:oancea.tudor@icloud.com">oancea.tudor@icloud.com</a></dd>
+        <dt>GitHub</dt><dd><a href="https://github.com/tudoroancea">tudoroancea</a></dd>
+        <dt>LinkedIn</dt><dd><a href="https://www.linkedin.com/in/tudoroancea">tudoroancea</a></dd>
+      </dl>
+    </div>
+    <img src="portrait.jpg" alt="Portrait of Tudor Oancea" width="480" height="477">
+  </header>
+
+  <figure>
+    <figcaption>KKT matrix of an optimal control problem with 5 stages, 2 states and 1 input. <span id="nnz"></span></figcaption>
+    <svg id="kkt" aria-hidden="true"></svg>
+  </figure>
+
+  <main>
+    <section>
+      <h2>Research</h2>
+      <p>
+        My PhD is about the software between a control engineer's model and the
+        computer that runs the controller. Today a model with a neural network
+        inside, solved by a dedicated optimizer, crosses several tools and
+        runtimes before it reaches a robot, and each boundary costs speed. I
+        build compilers that see the whole problem at once.
+      </p>
+      <article class="feature">
+        <h3><a href="https://github.com/PREDICT-EPFL/scaly">scaly</a></h3>
+        <p>
+          A modelling and code-generation library for optimal control. You
+          describe dynamics, costs and constraints once in Python, and scaly
+          generates self-contained C code for them and their sparse derivatives,
+          ready for solvers such as IPOPT and PIQP. Repeated stages stay loops,
+          so the code stays small as the horizon grows.
+        </p>
+        <p>
+          Against CasADi, its generated derivatives are 1.8 to 53 times faster
+          in closed-loop benchmarks, and it still compiles problems that CasADi
+          cannot.
+        </p>
+        <p class="links">
+          <a href="https://github.com/PREDICT-EPFL/scaly">Source</a>
+          <a href="https://predict-epfl.github.io/scaly/">Documentation</a>
+        </p>
+      </article>
+
+      <h3>Publications</h3>
+      <ul class="pubs">
+        <li>
+          <a href="https://doi.org/10.23919/ECC57647.2023.10178416">Relaxed recentered log-barrier function based nonlinear model predictive control</a>
+          <span class="meta"><strong>T. A. Oancea</strong>, Y. Jiang, C. N. Jones. European Control Conference (ECC), 2023.</span>
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Projects</h2>
+      <p>Open-source work outside my thesis, mostly tools I wanted for myself.</p>
+      <ul class="projects">
+        <li><div><a href="https://github.com/tudoroancea/Bourbaki">Bourbaki</a><span class="lang">Swift</span></div><p>A macOS app for running coding agents across git worktrees.</p></li>
+        <li><div><a href="https://github.com/tudoroancea/pi-simple-web-ui">pi-simple-web-ui</a><span class="lang">TypeScript</span></div><p>A browser view for checking on a running Pi coding agent.</p></li>
+        <li><div><a href="https://github.com/tudoroancea/ted-stack">ted-stack</a><span class="lang">TypeScript</span></div><p>A deliberately small template for personal web services.</p></li>
+        <li><div><a href="https://github.com/tudoroancea/touying-epfl">touying-epfl</a><span class="lang">Typst</span></div><p>EPFL's official slide template, for Typst.</p></li>
+        <li><div><a href="https://github.com/tudoroancea/strongpods">strongpods</a><span class="lang">Python</span></div><p>Plain data classes whose field types are checked at runtime.</p></li>
+        <li><div><a href="https://github.com/tudoroancea/brains2">brains2</a><span class="lang">C++, Python</span></div><p>Driverless software for a Formula Student race car: planning, control and simulation on ROS 2.</p></li>
+        <li><div><a href="https://github.com/tudoroancea/dpc">dpc</a><span class="lang">Python</span></div><p>Training neural controllers to imitate MPC on a race car.</p></li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Experience</h2>
+      <ol class="timeline" reversed>
+        <li>
+          <time>2025–</time>
+          <div>
+            <h3>PhD student, <a href="https://www.epfl.ch/labs/la3/">Predictive Control Lab</a>, EPFL</h3>
+            <p>Compilers and solvers for embedded optimal control. Funded by <a href="https://nccr-automation.ch">NCCR Automation</a>.</p>
+          </div>
+        </li>
+        <li>
+          <time>2024–25</time>
+          <div>
+            <h3>Master's thesis, <a href="https://www.epfl.ch/labs/optim/">Chair of Continuous Optimization</a>, EPFL</h3>
+            <p>Numerical methods for Riemannian optimization in the open-source <a href="https://github.com/pymanopt/pymanopt">Pymanopt</a> library: multi-backend manifolds and more robust algorithms.</p>
+          </div>
+        </li>
+        <li>
+          <time>2024</time>
+          <div>
+            <h3>Motion planning intern, <a href="https://www.embotech.com/">Embotech</a>, Zürich</h3>
+            <p>Parking for cars and trucks, solver performance, and qualification tests for the safety certification of an automated driving system.</p>
+          </div>
+        </li>
+        <li>
+          <time>2023–24</time>
+          <div>
+            <h3>Guidance, navigation and control engineer, Gruyère Space Program</h3>
+            <p>A real-time predictive safety filter for vertical-landing rockets, validated in simulation on a Raspberry Pi 5.</p>
+          </div>
+        </li>
+        <li>
+          <time>2021–23</time>
+          <div>
+            <h3>Autonomous driving engineer, <a href="https://epflracingteam.ch/en/">EPFL Racing Team</a></h3>
+            <p>Motion planning and nonlinear MPC for the driverless car, a vehicle simulator, and EKF and graph-based SLAM.</p>
+          </div>
+        </li>
+      </ol>
+
+      <h3>Education</h3>
+      <ol class="timeline" reversed>
+        <li><time>2022–25</time><div><p>MSc in Computational Science and Engineering, EPFL</p></div></li>
+        <li><time>2019–22</time><div><p>BSc in Mathematics, EPFL</p></div></li>
+      </ol>
+    </section>
+  </main>
+
+  <footer>Lausanne, Switzerland. Updated October 2026.</footer>
+
+  <script>
+    // KKT matrix of a multiple-shooting OCP, unknowns ordered stage by stage:
+    // (λ0, x0, u0, λ1, x1, u1, ..., λN, xN). λ0 pins x0; λk+1 enforces the dynamics.
+    const nx = 2, nu = 1, N = 5, s = 2 * nx + nu, n = 2 * nx + N * s;
+    const K = Array.from({ length: n }, () => new Uint8Array(n));
+    const fill = (r, c, h, w, diag) => {
+      for (let i = 0; i < h; i++) for (let j = 0; j < w; j++) if (!diag || i === j) K[r + i][c + j] = K[c + j][r + i] = 1;
+    };
+    for (let k = 0; k <= N; k++) {
+      const l = k * s, x = l + nx;
+      fill(l, x, nx, nx, true);
+      if (k < N) { fill(x, x, nx + nu, nx + nu); fill(l + s, x, nx, nx + nu); } else fill(x, x, nx, nx);
+    }
+    let d = "", nnz = 0;
+    K.forEach((row, i) => row.forEach((v, j) => { if (v) { nnz++; d += `M${j + .125} ${i + .125}h.75v.75h-.75z`; } }));
+    const svg = document.getElementById("kkt");
+    svg.setAttribute("viewBox", `-.5 -.5 ${n + 1} ${n + 1}`);
+    svg.innerHTML = `<path d="${d}"/>`;
+    document.getElementById("nnz").textContent = `${nnz} of ${n * n} entries are nonzero.`;
+  </script>
+</body>
+</html>
